@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import UserInput from './UserIntereactions/UserInput';
-import UserOutput from './UserIntereactions/UserOutput';
-
+import UserInput from './UserInput/UserInput';
+import UserOutput from './UserOutput/UserOutput';
+import './styling/stles.css';
 
 class App extends Component {
 
@@ -9,28 +9,28 @@ class App extends Component {
     username: 'Derek'
   }
 
-  updateNameHandler = (val) => {
-    this.setState = {
-      username: val
-    }
+  nameChangeHandler = (event) => {
+    this.setState({
+      username: event.target.value
+    });
   }
-
-
+ 
   render() {
 
     return (
-
-      <div>
-      <h1>Assignment 1</h1>
       
-      <UserInput textEntered={this.updateNameHandler}/>
-      <UserOutput username={this.state.username} />
-      <UserOutput username={this.state.username}/>
-      <UserOutput username={this.state.username}/>
-      
+      <div className="AppContainer">
+        <UserInput nameUpdate={this.nameChangeHandler} username={this.state.username} />
+        <UserOutput username={this.state.username} />
+        <UserOutput username={this.state.username} />
+        <UserOutput username={this.state.username} />        
       </div>
-    );
+
+    )
+
   }
+
+
 }
 
 export default App;
