@@ -6,7 +6,13 @@ import './styling/stles.css';
 class App extends Component {
 
   state = {
-    username: 'Derek'
+    usernames: [
+      { id: '001', name: 'Derek'},
+      { id: '002', name: 'Arnold'},
+      { id: '003', name: 'Dick'},
+      { id: '004', name: 'Nigel'},
+      { id: '005', name: 'BlastFace'},
+    ]
   }
 
   nameChangeHandler = (event) => {
@@ -17,13 +23,23 @@ class App extends Component {
  
   render() {
 
+    let usersList = (
+      <div>
+        {this.state.usernames.map((user, id) => {
+          return <UserOutput 
+          name={user.name}
+          key={user.id} />
+        })}
+      </div>
+    )
+
     return (
       
       <div className="AppContainer">
-        <UserInput nameUpdate={this.nameChangeHandler} username={this.state.username} />
-        <UserOutput username={this.state.username} />
-        <UserOutput username={this.state.username} />
-        <UserOutput username={this.state.username} />        
+        <UserInput 
+        nameUpdate={this.nameChangeHandler} 
+        username={this.state.username} />
+        {usersList}       
       </div>
 
     )

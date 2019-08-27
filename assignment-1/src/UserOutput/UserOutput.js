@@ -14,8 +14,8 @@ const UserOutput = (props) => {
     return (
 
         <div style={styling}>
-            <p> === Hello, {props.username} === </p>
-            <p> == This is {props.username} speaking ==</p>    
+            <p> === Hello, {props.name} === </p>
+            <p> == This is {props.name} speaking ==</p>    
         </div>
 
     )
